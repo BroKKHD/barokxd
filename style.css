@@ -1,3 +1,30 @@
+body {
+    background-color: #ff4d6d; /* Çilek rengi 🍓 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
 button {
     width: 150px;
     height: 60px;
@@ -5,40 +32,16 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 10px;
-    position: absolute;
-    bottom: 20px;
-    transition: transform 0.2s ease-in-out; /* Buton kayması */
-    pointer-events: auto; /* Buton tıklanabilir */
-}
-
-button:hover {
-    transform: translateX(20px); /* Mouse üzerine geldiğinde buton kayacak */
-}
-
-.strawberry {
-    position: absolute;
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    display: none;
     transition: 0.3s ease;
+    position: relative;
 }
 
-.strawberry-message {
-    position: absolute;
-    top: 90px;
-    width: 300px;
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    display: none;
+#kaybolan {
+    background-color: white;
+    color: #ff4d6d;
 }
 
-.messages {
-    position: absolute;
-    top: 100px;
-    width: 300px;
-    text-align: center;
+#sabit {
+    background-color: black;
     color: white;
-    font-size: 18px;
 }
