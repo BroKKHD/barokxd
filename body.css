@@ -1,36 +1,45 @@
 body {
-    font-family: Arial, sans-serif;
+    background-color: #ff4d6d; /* Çilek rengi 🍓 */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
 .container {
     text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
 button {
-    padding: 10px 20px;
+    width: 150px;
+    height: 60px;
     font-size: 18px;
-    background-color: #ff7f50;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    transition: 0.2s ease;
 }
 
-button:hover {
-    background-color: #ff4500;
+#kaybolan {
+    background-color: white;
+    color: #ff4d6d;
 }
 
-#mesaj {
-    font-size: 20px;
-    margin-top: 20px;
+#sabit {
+    background-color: black;
+    color: white;
 }
