@@ -23,43 +23,47 @@ sabitButton.addEventListener("click", function() {
     document.querySelector(".container").style.display = "none";
     blackout.style.display = "block";
 
-    // 5 saniye sonra şekerlik gelsin
+    // 5 saniye sonra şekerlik ve kız gelsin
     setTimeout(() => {
         sekerlik.style.display = "block";
-        sekerlik.style.animation = "sekerlikYukari 2s ease forwards";
+        sekerlik.style.animation = "yukari 2s ease forwards";
+        kiz.style.display = "block";
+        kiz.style.animation = "yukari 2s ease forwards";
 
-        // Şekerlik yerleştikten sonra kızın fotoğrafı silik görünsün
+        // Şekerlik yerleştikten 1 saniye sonra ilk mesaj
         setTimeout(() => {
-            kiz.style.display = "block";
-            kiz.style.bottom = `${sekerlik.offsetTop + 50}px`; // Şekerlik ortası
+            mesaj1.style.display = "block";
 
-            // 2 saniye sonra yazılar ve kızın çıkışı
+            // 3 saniye sonra mesaj kaybolur, kız belirginleşir
             setTimeout(() => {
-                mesaj1.style.display = "block"; // İlk mesaj
+                mesaj1.style.display = "none";
+                kiz.style.bottom = "70%";
+                kiz.style.animation = "kizBelirgin 1s ease forwards";
 
+                // Kız belirginleştikten 1 saniye sonra ikinci mesaj
                 setTimeout(() => {
-                    kiz.style.animation = "kizCik 2s ease forwards"; // Kız üste çıksın ve belirginleşsin
+                    mesaj2.style.display = "block";
 
+                    // 3 saniye sonra ikinci mesaj kaybolur, Afiyet Olsun gelir
                     setTimeout(() => {
-                        mesaj2.style.display = "block"; // İkinci mesaj
-
-                        setTimeout(() => {
-                            mesaj3.style.display = "block"; // AFİYET OLSUN
-                        }, 1000);
-                    }, 1000);
+                        mesaj2.style.display = "none";
+                        mesaj3.style.display = "block";
+                    }, 3000);
                 }, 1000);
-            }, 2000);
+            }, 3000);
         }, 1000);
     }, 5000); // 5 saniye siyah ekran
 });
 
-// "AFİYET OLSUN" tıklanınca GIF ve kapanış
+// "AFİYET OLSUN" butonuna tıklayınca GIF
 mesaj3.addEventListener("click", function() {
-    blackout.style.display = "none"; // Siyah ekranı gizle
-    bayramGif.style.display = "block"; // GIF göster
+    sekerlik.style.display = "none";
+    kiz.style.display = "none";
+    mesaj3.style.display = "none";
+    bayramGif.style.display = "block"; // GIF siyah arka planda
+});
 
-    // GIF'e tıklayınca sekme kapansın
-    bayramGif.addEventListener("click", function() {
-        window.close(); // Sekmeyi kapat
-    });
+// GIF'e tıklayınca sekme kapanır
+bayramGif.addEventListener("click", function() {
+    window.close();
 });
