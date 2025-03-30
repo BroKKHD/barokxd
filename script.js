@@ -52,19 +52,6 @@ sabitButton.addEventListener("click", function() {
             yazKelimeKelime(mesaj1, "Buyrun, aralarında güzel bir tane buldum.", () => {
                 // Yazı tamamlanırken kızın opaklığı artsın
                 let opacity = 0;
-                const opacityInterval = setyazKelimeKelime(mesaj2, "Çilekli bir tane buldum, seversin.", () => {
-                    // 1 saniye durup Afiyet Olsun butonu
-                    setTimeout(() => {
-                        mesaj2.style.display = "none";
-                        mesaj3.style.display = "block";
-
-                        // Buton göründükten 1 saniye sonra otomatik tıklansın
-                        setTimeout(() => {
-                            mesaj3.click();
-                        }, 1000);
-                    }, 1000);
-                });
-                let opacity = 0;
                 const opacityInterval = setInterval(() => {
                     opacity += 0.05;
                     kiz.style.opacity = opacity;
