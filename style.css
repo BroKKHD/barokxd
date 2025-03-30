@@ -1,5 +1,5 @@
 body {
-    background-color: #ff4d6d; /* Çilek rengi 🍓 */
+    background-color: #ff4d6d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,6 @@ button {
     color: white;
 }
 
-/* Siyah ekran ve elemanlar */
 #blackout {
     display: none;
     position: fixed;
@@ -72,18 +71,18 @@ button {
 #kiz {
     display: none;
     position: absolute;
-    bottom: -250px; /* Şekerlik içinde başlasın */
+    bottom: -250px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
-    opacity: 0; /* Tamamen silik */
+    opacity: 0;
     z-index: 10001;
 }
 
 #mesaj1, #mesaj2 {
     display: none;
     position: absolute;
-    left: calc(50% + 160px); /* Şekerliğin sağı */
+    left: calc(50% + 160px);
     top: 50%;
     transform: translateY(-50%);
     color: white;
@@ -94,7 +93,7 @@ button {
 #mesaj3 {
     display: none;
     position: absolute;
-    left: calc(50% + 160px); /* Şekerliğin sağı */
+    left: calc(50% + 160px);
     top: 50%;
     transform: translateY(-50%);
     background-color: black;
@@ -113,13 +112,12 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%; /* Küçültüldü */
-    height: 50%; /* Küçültüldü */
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     z-index: 10003;
 }
 
-/* Animasyonlar */
 @keyframes yukari {
     0% { bottom: -300px; }
     100% { bottom: 50%; transform: translateX(-50%) translateY(50%); }
