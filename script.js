@@ -70,11 +70,7 @@ sabitButton.addEventListener("click", function() {
                             setTimeout(() => {
                                 mesaj2.style.display = "none";
                                 mesaj3.style.display = "block";
-
-                                // Buton göründükten 1 saniye sonra otomatik tıklansın
-                                setTimeout(() => {
-                                    mesaj3.click();
-                                }, 1000);
+                                // Otomatik tıklama kaldırıldı, senin tıklamanı bekleyecek
                             }, 1000);
                         });
                     }, 1000);
