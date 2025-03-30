@@ -17,9 +17,26 @@ kaybolanButton.addEventListener("mouseover", function() {
     kaybolanButton.style.top = `${y}px`;
 });
 
+// Kelime kelime yazma fonksiyonu
+function yazKelimeKelime(element, text, callback) {
+    const kelimeler = text.split(" ");
+    let index = 0;
+    element.style.display = "block";
+    element.textContent = "";
+
+    const interval = setInterval(() => {
+        if (index < kelimeler.length) {
+            element.textContent += (index > 0 ? " " : "") + kelimeler[index];
+            index++;
+        } else {
+            clearInterval(interval);
+            if (callback) callback();
+        }
+    }, 300); // Her kelime 300ms arayla
+}
+
 // "Şeker İkramını Kabul Et" butonu animasyon
 sabitButton.addEventListener("click", function() {
-    // İlk içerik gizle, siyah ekran göster
     document.querySelector(".container").style.display = "none";
     blackout.style.display = "block";
 
@@ -32,25 +49,37 @@ sabitButton.addEventListener("click", function() {
 
         // Şekerlik yerleştikten 1 saniye sonra ilk mesaj
         setTimeout(() => {
-            mesaj1.style.display = "block";
+            yazKelimeKelime(mesaj1, "Buyrun, aralarında güzel bir tane buldum.", () => {
+                // Yazı tamamlanırken kızın opaklığı artsın
+                let opacity = 0;
+                const opacityInterval = setInterval(() => {
+                    opacity += 0.05;
+                    kiz.style.opacity = opacity;
+                    if (opacity >= 0.3) clearInterval(opacityInterval);
+                }, 100);
 
-            // 3 saniye sonra mesaj kaybolur, kız belirginleşir
-            setTimeout(() => {
-                mesaj1.style.display = "none";
-                kiz.style.bottom = "70%";
-                kiz.style.animation = "kizBelirgin 1s ease forwards";
-
-                // Kız belirginleştikten 1 saniye sonra ikinci mesaj
+                // Yazı tamamlandıktan 2 saniye sonra kaybolsun ve kız kaysın
                 setTimeout(() => {
-                    mesaj2.style.display = "block";
+                    mesaj1.style.display = "none";
+                    kiz.style.animation = "kizKay 2s ease forwards";
 
-                    // 3 saniye sonra ikinci mesaj kaybolur, Afiyet Olsun gelir
+                    // Kız kaydıktan 1 saniye sonra ikinci mesaj
                     setTimeout(() => {
-                        mesaj2.style.display = "none";
-                        mesaj3.style.display = "block";
-                    }, 3000);
-                }, 1000);
-            }, 3000);
+                        yazKelimeKelime(mesaj2, "Çilekli bir tane buldum, seversin.", () => {
+                            // 3 saniye sonra kaybolsun
+                            setTimeout(() => {
+                                mesaj2.style.display = "none";
+
+                                // Afiyet Olsun otomatik tıklansın
+                                setTimeout(() => {
+                                    mesaj3.style.display = "block";
+                                    setTimeout(() => mesaj3.click(), 100); // Otomatik tıklama
+                                }, 1000);
+                            }, 3000);
+                        });
+                    }, 1000);
+                }, 2000);
+            });
         }, 1000);
     }, 5000); // 5 saniye siyah ekran
 });
